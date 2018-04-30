@@ -1,3 +1,3 @@
 # CINEMAPP
 
-Creado dfecha 29/04/2018
+Creado  la fecha 29/04/2018
