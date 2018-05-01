@@ -8,6 +8,15 @@
 	<title>CINEMAPP</title>
 </head>
 <body>
+
+  <?php
+    session_start();
+    if(!isset($_SESSION["usuario"]))
+    {
+     header("location:../index.php");
+    }
+  ?>
+
 	<header>
       <div class="logo-menu">
         <div class="container">
@@ -15,8 +24,14 @@
             <div class="logo col-xs-12 col-sm-4 center-xs start-sm"><h2>CINEMAPP</h2></div>
             <nav class="menu col-xs-12 col-sm-8 center-xs end-sm">
               <a href="">Inicio</a>
-              <a href="">Iniciar Sesion</a>
-              <a href="">Registrate</a>
+              <a href="">Iniciar Sesión</a>
+
+              <?php
+                echo "Hola ".$_SESSION["usuario"];
+              ?>
+              <a href=""> <img src='../ModGeneral/user.png' width="50px" ></a>
+              <a href="../ModGeneral/cerrar_sesion.php">Cerrar Sesión</a>
+
             </nav>
           </div>
         </div>
