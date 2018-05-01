@@ -27,11 +27,11 @@ $sql="SELECT * FROM usuarios WHERE nombre= :nombre AND pass= :pass";
 		{
 			session_start();
 			$_SESSION["usuario"]=$_POST["nombre"];
-			header("location:../App/App.php");
+			header("location:../../App/App.php");
 		}
 		else
 		{
-			header("location:../index.php");
+			header("location:../../index.php");
 		}
 	}
 	catch(Exeption $e)

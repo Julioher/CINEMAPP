@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CINEMAPP</title>
-	<link rel="stylesheet" href="ModGeneral/style.css">
+	<link rel="stylesheet" href="ModGeneral/css/style.css">
 </head>
 <body>
 	<div class="loginBox">
-			<img src="ModGeneral/usuario.png" height="128" width="128" class="user">
+			<img src="ModGeneral/img/usuario.png" height="128" width="128" class="user">
 			<h2>CINEMAPP</h2>
-			<form action="ModGeneral/login.php" method="post">
+			<form action="ModGeneral/php/login.php" method="post">
 				<p>Usuario</p>
 				<input type="text" name="nombre" placeholder="Ingrese el Usuario">
 				<p>Contraseña</p>

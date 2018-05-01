@@ -29,8 +29,8 @@
               <?php
                 echo "Hola ".$_SESSION["usuario"];
               ?>
-              <a href=""> <img src='../ModGeneral/user.png' width="50px" ></a>
-              <a href="../ModGeneral/cerrar_sesion.php">Cerrar Sesión</a>
+              <a href=""> <img src='../ModGeneral/img/user.png' width="50px" ></a>
+              <a href="../ModGeneral/php/cerrar_sesion.php">Cerrar Sesión</a>
 
             </nav>
           </div>
