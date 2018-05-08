@@ -23,8 +23,7 @@
           <div class="row middle-xs between-xs">
             <div class="logo col-xs-12 col-sm-4 center-xs start-sm"><h2>CINEMAPP</h2></div>
             <nav class="menu col-xs-12 col-sm-8 center-xs end-sm">
-              <a href="">Inicio</a>
-              <a href="">Iniciar Sesión</a>
+
 
               <?php
                 echo "Hola ".$_SESSION["usuario"];
@@ -39,12 +38,12 @@
 
       <div class="submenu">
         <div class="container">
-          <div class="row center-xs">
+          <div class="row left-xs">
             <div class="col-xs">
               <nav>
-                <a href="#">Populares</a>
-                <a href="#">Recientes</a>
-                <a href="#">Favoritos</a>
+                <input class="buscar" type="text" name="buscar" placeholder="Buscar Películas">
+                <a href="#"><input class="boton"type="button" value="Buscar"></a>
+
               </nav>
             </div>
           </div>
@@ -95,9 +94,9 @@
         <div class="row middle-xs between-xs">
           <div class="col-xs-12 col-sm-4">
             <div class="nav">
-              <a href="#">Inicio</a>
-              <a href="#">Trabajos</a>
-              <a href="#">Terminos y Condiciones</a>
+              <a href="#">Salas</a>
+              <a href="#">Estrenos</a>
+              <a href="#">Géneros</a>
               <a href="#">Contacto</a>
             </div>
           </div>

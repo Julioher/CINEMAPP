@@ -44,8 +44,25 @@ header a {
 }
 
 .submenu nav a {
-	padding: 26px 20px;
+	padding: 26px 0px;
 	display: inline-block;
+}
+
+.submenu nav .buscar {
+	padding: 5px;
+	width: 300px;
+	height: 30px;
+	display: inline-block;
+	border: 1px solid #ff9f1c;
+	/*border-radius: 15px;*/
+}
+
+.submenu nav .boton {
+	padding: 7px;
+	color: #fff;
+	background: #ff9f1c;
+	border: 1px;
+	/*border-radius: 15px;*/
 }
 
 .submenu nav a:hover {
