@@ -41,6 +41,7 @@ header a {
 
 .submenu {
 	background: #003459;
+	padding: 20px;
 }
 
 .submenu nav a {
@@ -57,16 +58,22 @@ header a {
 	/*border-radius: 15px;*/
 }
 
-.submenu nav .boton {
+.submenu nav  #boton {
 	padding: 7px;
 	color: #fff;
 	background: #ff9f1c;
 	border: 1px;
-	/*border-radius: 15px;*/
+	/*transform:rotate(360deg);*/
 }
 
+.submenu nav .boton:hover
+{
+	cursor: pointer;
+}
+
+
 .submenu nav a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .container

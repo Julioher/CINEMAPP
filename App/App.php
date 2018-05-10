@@ -1,10 +1,21 @@
+<?php
+  $conexion= mysqli_connect("localhost", "root", "", "cinemapp2");
+  if (mysqli_connect_errno())
+  {
+      printf("conexion falló\n", mysqli_connect_error());
+      exit();
+  }
+  mysqli_select_db($conexion, "cinemapp2");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
-	<link rel="stylesheet" href="css/flexboxgrid.min.css">
-	<link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/flexboxgrid.min.css">
+  <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.min.css">
+
 	<title>CINEMAPP</title>
 </head>
 <body>
@@ -41,10 +52,97 @@
           <div class="row left-xs">
             <div class="col-xs">
               <nav>
-                <input class="buscar" type="text" name="buscar" placeholder="Buscar Películas">
-                <a href="#"><input class="boton"type="button" value="Buscar"></a>
 
+               Iniciar una venta
+
+                <!-- <div class="container"> -->
+                  <a href="#formulario" class="btn btn-primary btn-lg" type="button" data-toggle="modal" id="boton">Aquí</a>
+                  <div class="modal fade" id="formulario">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                         <div class=" modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           <center><h2 class="modal-title" style="color:black;">FORMULARIO</h2></center>
+                         </div>
+                         <div class="modal-body">
+                          <form action="App.php" method="post">
+                            <div class="form-group">
+                              <select class="form-control" name="pelicula">
+                                <option value="">Películas</option>
+      <?php
+        $sql= "SELECT idPelicula, nombre FROM peliculas order by nombre ASC";
+        $rec= mysqli_query($conexion, $sql);
+        while ($row=mysqli_fetch_row($rec))
+        {
+          echo "<option value='".$row['0']."'>".$row['1']."</option>";
+        }
+      ?>
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <select class="form-control" name="usuario">
+                              <option value="">Usuarios</option>
+      <?php
+        $sql= "SELECT idUsuario, nombre FROM usuarios order by nombre ASC";
+        $rec= mysqli_query($conexion, $sql);
+        while ($row=mysqli_fetch_row($rec))
+        {
+          echo "<option value='".$row['0']."'>".$row['1']."</option>";
+        }
+      ?>
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <select class="form-control" name="sala" >
+                                <option value="">Salas</option>
+      <?php
+        $sql= "SELECT idSala, nombre FROM salas order by nombre ASC";
+        $rec= mysqli_query($conexion, $sql);
+        while ($row=mysqli_fetch_row($rec))
+        {
+          echo "<option value='".$row['0']."'>".$row['1']."</option>";
+        }
+      ?>
+                              </select>
+                            </div>
+
+                            <div class="form-group">
+                              <select class="form-control" name="horario" >
+<option value="">Horarios</option>
+      <?php
+        $sql= "SELECT idHorario, hora FROM horarios order by hora ASC";
+        $rec= mysqli_query($conexion, $sql);
+        while ($row=mysqli_fetch_row($rec))
+        {
+          echo "<option value='".$row['0']."'>".$row['1']."</option>";
+        }
+      ?>
+                              </select>
+                            </div>
+
+                            <div class="modal-footer">
+                              <input type="submit" name="btn-guardar" class="btn btn-primary" value="Guardar">
+                            </div>
+
+                          </form>
+
+                           <?php
+    if(@$_POST['btn-guardar'])
+    {
+
+      $consulta="INSERT INTO ventas (idPelicula, idUsuario, idSala, idHorario) VALUES('$_POST[pelicula]', '$_POST[usuario]', '$_POST[sala]', '$_POST[horario]')";
+      mysqli_query($conexion, $consulta);
+    }
+  ?>
+                         </div>
+                      </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
               </nav>
+
             </div>
           </div>
         </div>
@@ -100,11 +198,12 @@
               <a href="#">Contacto</a>
             </div>
           </div>
-
           <div class="col-xs-12 col-sm-4">
             <div class="logo">CINEMAPP</div>
           </div>
         </div>
 		</div>
+    <script src="js/jquery.js"></script>
+    <script  src="bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

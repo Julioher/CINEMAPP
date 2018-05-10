@@ -3,7 +3,7 @@
 
 	try
 	{
-		$base=new PDO("mysql:host=localhost; dbname=cinemapp", "root", "");
+		$base=new PDO("mysql:host=localhost; dbname=cinemapp2", "root", "");
 
 		$base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
