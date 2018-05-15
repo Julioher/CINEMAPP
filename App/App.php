@@ -67,7 +67,7 @@
                          <div class="modal-body">
                           <form action="App.php" method="post">
                             <div class="form-group">
-                              <select class="form-control" name="pelicula">
+                              <select class="form-control" name="pelicula" required>
                                 <option value="">Películas</option>
       <?php
         $sql= "SELECT idPelicula, nombre FROM peliculas order by nombre ASC";
@@ -81,7 +81,7 @@
                             </div>
 
                             <div class="form-group">
-                              <select class="form-control" name="usuario">
+                              <select class="form-control" name="usuario" required>
                               <option value="">Usuarios</option>
       <?php
         $sql= "SELECT idUsuario, nombre FROM usuarios order by nombre ASC";
@@ -95,7 +95,7 @@
                             </div>
 
                             <div class="form-group">
-                              <select class="form-control" name="sala" >
+                              <select class="form-control" name="sala" required>
                                 <option value="">Salas</option>
       <?php
         $sql= "SELECT idSala, nombre FROM salas order by nombre ASC";
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="form-group">
-                              <select class="form-control" name="horario" >
+                              <select class="form-control" name="horario" required>
 <option value="">Horarios</option>
       <?php
         $sql= "SELECT idHorario, hora FROM horarios order by hora ASC";
@@ -132,7 +132,7 @@
     if(@$_POST['btn-guardar'])
     {
 
-      $consulta="INSERT INTO ventas (idPelicula, idUsuario, idSala, idHorario) VALUES('$_POST[pelicula]', '$_POST[usuario]', '$_POST[sala]', '$_POST[horario]')";
+      $consulta="INSERT INTO ventas (idPelicula, idUsuario, idSala, idHorario, fecha) VALUES('$_POST[pelicula]', '$_POST[usuario]', '$_POST[sala]', '$_POST[horario]', NOW())";
       mysqli_query($conexion, $consulta);
     }
   ?>
